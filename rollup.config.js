@@ -3,7 +3,8 @@ const json = require("@rollup/plugin-json");
 
 /** rollup解析及编译TS插件 */
 const typescript = require("@rollup/plugin-typescript");
-
+console.log(typescript);
+console.log(1234);
 /** 解析代码中依赖的node_modules */
 const resolve = require("@rollup/plugin-node-resolve");
 
@@ -29,7 +30,10 @@ module.exports = {
     /** 配置插件 - 将json转换为ES6模块 */
     json(),
     /** 配置插件 - 将json转换为ES6模块 */
-    typescript({ module: "CommonJS", }),
+    typescript({
+      module: "esnext",
+      exclude: ["./node_modules/**"],
+    }),
     resolve.default({
       extensions: [".js", ".ts", ".json"],
       modulesOnly: true,
