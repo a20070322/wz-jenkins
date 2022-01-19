@@ -29,7 +29,10 @@ module.exports = {
     /** 配置插件 - 将json转换为ES6模块 */
     json(),
     /** 配置插件 - 将json转换为ES6模块 */
-    typescript({ module: "CommonJS", }),
+    typescript({
+      module: "esnext",
+      exclude: ["./node_modules/**"],
+    }),
     resolve.default({
       extensions: [".js", ".ts", ".json"],
       modulesOnly: true,
