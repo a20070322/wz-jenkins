@@ -1,0 +1,28 @@
+{
+  "name": "wz-jenkins",
+  "version": "1.0.0",
+  "description": "terminal call jenkins",
+  "main": "lib/index.js",
+  "bin": "bin/index.js",
+  "scripts": {
+    "lint": "eslint 'src/**/*.{js,ts}' --fix",
+    "dev": "rollup -w -c",
+    "build": "rollup -c"
+  },
+  "repository": "git@github.com:a20070322/wz-jenkins.git",
+  "author": "ZhaoZhongYang <z1031839775@gmail.com>",
+  "license": "MIT",
+  "devDependencies": {
+    "@rollup/plugin-commonjs": "^21.0.1",
+    "@rollup/plugin-json": "^4.1.0",
+    "@rollup/plugin-node-resolve": "^13.1.3",
+    "@rollup/plugin-typescript": "^8.3.0",
+    "@typescript-eslint/eslint-plugin": "^5.10.0",
+    "@typescript-eslint/parser": "^5.10.0",
+    "eslint": "^8.7.0",
+    "rollup": "^2.64.0",
+    "rollup-plugin-cleandir": "^2.0.0",
+    "rollup-plugin-typescript2": "^0.31.1",
+    "typescript": "^4.5.4"
+  }
+}
