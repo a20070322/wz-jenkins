@@ -3,8 +3,7 @@ const json = require("@rollup/plugin-json");
 
 /** rollup解析及编译TS插件 */
 const typescript = require("@rollup/plugin-typescript");
-console.log(typescript);
-console.log(1234);
+
 /** 解析代码中依赖的node_modules */
 const resolve = require("@rollup/plugin-node-resolve");
 
