@@ -25,6 +25,7 @@
     "typescript": "^4.5.4"
   },
   "dependencies": {
-    "cac": "^6.7.12"
+    "cac": "^6.7.12",
+    "chalk": "4.*"
   }
 }
