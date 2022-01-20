@@ -46,5 +46,5 @@ module.exports = {
     commonjs({ extensions: [".js", ".ts", ".json"] }),
   ],
   /** 排除打包的模块 */
-  external: [ "chalk", "ora"],
+  external: ["chalk", "ora"],
 };
