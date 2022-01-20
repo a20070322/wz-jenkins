@@ -1,16 +1,21 @@
 /** 将json转换为ES6模块 */
+// eslint-disable-next-line @typescript-eslint/no-var-requires
 const json = require("@rollup/plugin-json");
 
 /** rollup解析及编译TS插件 */
+// eslint-disable-next-line @typescript-eslint/no-var-requires
 const typescript = require("@rollup/plugin-typescript");
 
 /** 解析代码中依赖的node_modules */
+// eslint-disable-next-line @typescript-eslint/no-var-requires
 const resolve = require("@rollup/plugin-node-resolve");
 
 /** 将 CommonJS 模块转换为 ES6 的 Rollup 插件 */
+// eslint-disable-next-line @typescript-eslint/no-var-requires
 const commonjs = require("@rollup/plugin-commonjs");
 
 /** rollup文件夹清除插件 */
+// eslint-disable-next-line @typescript-eslint/no-var-requires
 const { cleandir } = require("rollup-plugin-cleandir");
 
 module.exports = {
@@ -40,6 +45,4 @@ module.exports = {
     }),
     commonjs({ extensions: [".js", ".ts", ".json"] }),
   ],
-  /** 排除打包的模块 */
-  external: ["prompts", "axios", "chalk", "ora"],
 };
