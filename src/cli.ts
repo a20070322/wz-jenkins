@@ -1,15 +1,18 @@
 import cac from "cac";
 import { name, version } from "../package.json";
 import { Log } from "./utils/log";
+import { sleep } from "./utils/os";
 const cli = cac(name);
 
 /** cli命令数组 */
 cli.commands = [
   /** 命令行 命令name , 命令描述 , 命令配置 */
-  cli.command("", "执行jenkins脚本").action(() => {
+  cli.command("", "执行jenkins脚本").action(async () => {
     Log.info("我是测试 - info");
     Log.error("我是测试 - error");
     Log.warn("我是测试 - warn");
+    await Log.loadingPromise("我是任务1", sleep);
+    await Log.loadingPromise("我是任务2", sleep);
     return;
   }),
 ];

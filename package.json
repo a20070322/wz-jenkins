@@ -25,6 +25,7 @@
     "typescript": "^4.5.4"
   },
   "dependencies": {
+    "axios": "^0.25.0",
     "cac": "^6.7.12",
     "chalk": "4.*",
     "log-symbols": "^5.1.0",
