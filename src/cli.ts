@@ -1,20 +1,15 @@
 import cac from "cac";
+import chalk from "chalk";
 import { name, version } from "../package.json";
+import { startJenkinsJob } from "./commands/startJenkins";
+import { bootstrap } from "./core/bootstrap";
 import { Log } from "./utils/log";
-import { sleep } from "./utils/os";
+bootstrap();
 const cli = cac(name);
-
 /** cli命令数组 */
 cli.commands = [
   /** 命令行 命令name , 命令描述 , 命令配置 */
-  cli.command("", "执行jenkins脚本").action(async () => {
-    Log.info("我是测试 - info");
-    Log.error("我是测试 - error");
-    Log.warn("我是测试 - warn");
-    await Log.loadingPromise("我是任务1", sleep);
-    await Log.loadingPromise("我是任务2", sleep);
-    return;
-  }),
+  cli.command("", "执行jenkins脚本").action(startJenkinsJob),
 ];
 
 /** cli-帮助 */
@@ -28,8 +23,8 @@ cli.parse();
 
 /** 异常处理函数 */
 const onError = (err: Error): void => {
-  console.error(`错误异常: ${err.message}`);
-  console.log(err.stack);
+  console.log(chalk.red("Error:"), chalk.red(err.message));
+  console.log(`${chalk.gray("Stack:")} ${chalk.gray(err.stack)}`);
   process.exit(1);
 };
 

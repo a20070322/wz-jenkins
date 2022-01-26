@@ -19,7 +19,7 @@ const getStackTrace = function () {
 export const Log = {
   /** info */
   info(...args: unknown[]) {
-    console.log(chalk.cyan("Info:"), chalk.cyan(...args));
+    console.log(chalk.cyan(...args));
   },
   /** warn */
   warn(...args: unknown[]) {
@@ -39,10 +39,20 @@ export const Log = {
    * @param fn 异步函数
    * @returns
    */
-  async loadingPromise<T>(msg: string, fn: () => Promise<T>) {
+  async loadingPromise<T>(
+    msg: string,
+    fn: (...arg: any[]) => Promise<T>,
+    that: unknown,
+    ...arg: any[]
+  ) {
     const spinner = ora(chalk.cyan(`Loading ${msg}`)).start();
     try {
-      const result = await fn();
+      let result: T;
+      if (!!that || !!arg) {
+        result = await fn.apply(that, arg);
+      } else {
+        result = await fn();
+      }
       spinner.stopAndPersist({
         prefixText: logSymbols.success,
         text: chalk.green(`Success ${msg}`),

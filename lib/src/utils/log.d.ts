@@ -12,5 +12,5 @@ export declare const Log: {
      * @param fn 异步函数
      * @returns
      */
-    loadingPromise<T>(msg: string, fn: () => Promise<T>): Promise<T>;
+    loadingPromise<T>(msg: string, fn: (...arg: any[]) => Promise<T>, that: unknown, ...arg: any[]): Promise<T>;
 };
